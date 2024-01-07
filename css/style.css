@@ -718,7 +718,7 @@ section:nth-child(odd) .animate.scroll {
 
 @media (max-width: 991px) {
     .header {
-        padding: 2rem 4%;
+        padding: 3rem 7%;
     }
 
     section {
@@ -734,6 +734,11 @@ section:nth-child(odd) .animate.scroll {
     }
 }
 
+@media (max-width: 850px) {
+    .animate.accueil-img {
+        width: 40%;
+    }
+}
 
 @media (max-width: 768px) {
     .header {
@@ -796,9 +801,15 @@ section:nth-child(odd) .animate.scroll {
 
 }
 
+@media (max-width: 621px) {
+    html {
+        font-size: 45%;
+    }
+}
+
 @media (max-width: 520px) {
     html {
-        font-size: 50%;
+        font-size: 38%;
     }
 
     .accueil-content h1 {
@@ -817,6 +828,9 @@ section:nth-child(odd) .animate.scroll {
 }
 
 @media (max-width: 462px) {
+    html {
+        font-size: 32%;
+    }
     .accueil-content h1 {
         font-size: 5.2rem;
     }
@@ -839,7 +853,8 @@ section:nth-child(odd) .animate.scroll {
     }
 }
 
-@media (max-width: 368px) {
+@media (max-width: 371px) {
+
     .accueil {
         justify-content: center;
     }
@@ -847,7 +862,7 @@ section:nth-child(odd) .animate.scroll {
     .accueil-content {
         display: flex;
         align-items: center;
-        flex-direction: center;
+        flex-direction: column;
     }
 
     .accueil-content h1 {
