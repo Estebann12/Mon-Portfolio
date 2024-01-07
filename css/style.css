@@ -422,6 +422,11 @@ span {
     padding-top: .5rem;
 }
 
+.parcours-content .content a {
+    font-size: 1.6rem;
+    color: var(--main-color);
+}
+
 .competences {
     min-height: auto;
     padding-bottom: 32rem;
