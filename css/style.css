@@ -46,9 +46,14 @@ body {
 }
 
 .logo {
+    position: relative;
     font-size: 2.5rem;
     color: var(--text-color);
     font-weight: 600;
+}
+
+.navbar {
+    position: relative;
 }
 
 .navbar a {
@@ -65,6 +70,7 @@ body {
 }
 
 #menu-icon {
+    position: relative;
     font-size: 3.6rem;
     color: var(--text-color);
     cursor: pointer;
@@ -90,6 +96,8 @@ section {
 }
 
 .accueil-content h1 {
+    position: relative;
+    display: inline-block;
     font-size: 5.6rem;
     font-weight: 700;
     line-height: 1.3;
@@ -112,7 +120,10 @@ section {
     background-image: linear-gradient(var(--main-color), var(--main-color));
     background-repeat: no-repeat;
     -webkit-background-clip: text;
-    background-position: 0 0;
+    background-position: -33rem 0;
+}
+
+.accueil.show-animate .accueil-content .text-animate h3 {
     animation: accueilBgText 6s linear infinite;
     animation-delay: 2s;
 }
@@ -125,12 +136,16 @@ section {
     width: 0;
     height: 100%;
     border-right: 2px solid var(--main-color);
-    z-index: -1;
+    z-index: -1;  
+}
+
+.accueil.show-animate .accueil-content .text-animate h3::before {
     animation: accueilCursorText 6s linear infinite;
     animation-delay: 2s;
 }
 
 .accueil-content p {
+    position: relative;
     font-size: 1.6rem;
     margin: 2rem 0 4rem;
 }
@@ -251,6 +266,7 @@ section {
 }
 
 .heading {
+    position: relative;
     font-size: 5rem;
     margin-bottom: 3rem;
     text-align: center;
@@ -288,6 +304,7 @@ span {
     border-bottom: .2rem solid var(--second-bg-color);
     border-left: .2rem solid var(--main-color);
     border-right: .2rem solid var(--main-color);
+    animation: aproposSpinner 8s linear infinite;
 }
 
 .apropos-content {
@@ -295,10 +312,13 @@ span {
 }
 
 .apropos-content h3 {
+    position: relative;
+    display: inline-block;
     font-size: 2.6rem;
 }
 
 .apropos-content p {
+    position: relative;
     font-size: 1.6rem;
     margin: 2rem 0 3rem;
 }
@@ -318,7 +338,7 @@ span {
     align-items: center;
     flex-direction: column;
     min-height: auto;
-    padding-bottom: 5rem;
+    padding-bottom: 16rem;
 }
 
 .parcours .parcours-row {
@@ -332,11 +352,14 @@ span {
 }
 
 .parcours-column .title {
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
     margin: 0 0 1.5rem 2rem;
 }
 
 .parcours-column .parcours-box {
+    position: relative;
     border-left: .2rem solid var(--main-color);
 }
 
@@ -401,8 +424,15 @@ span {
 
 .competences {
     min-height: auto;
-    padding-bottom: 7rem;
+    padding-bottom: 32rem;
     background: var(--second-bg-color);
+}
+
+.competences h2 {
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+    padding-bottom: 7rem;
 }
 
 .competences .competences-row {
@@ -416,8 +446,14 @@ span {
 }
 
 .competences-column .title {
+    position: relative;
+    display: inline-block;
     font-size: 2.5rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 2rem;
+}
+
+.competences-column .competences-box {
+    position: relative;
 }
 
 .competences-box .competences-content {
@@ -496,7 +532,12 @@ span {
 
 .contact {
     min-height: auto;
-    padding-bottom: 7rem;
+    padding-bottom: 32rem;
+}
+.contact h2 {
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .contact form {
@@ -577,6 +618,11 @@ span {
     background: var(--second-bg-color);
 }
 
+.footer-text,
+.footer-iconTop {
+    position: relative;
+}
+
 .footer-text p {
     font-size: 1.6rem;
 }
@@ -621,6 +667,47 @@ span {
     color: var(--main-color);
 }
 
+/*ANIMATION RELOAD AND SCROLL*/
+.animate {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color); 
+    z-index: 98;
+}
+
+.logo .animate,
+.navbar .animate,
+#menu-icon .animate,
+.accueil.show-animate .animate {
+    animation: showRight 1s ease forwards;
+    animation-delay: calc(.3s * var(--i));
+}
+
+.animate.scroll {
+    transition: 1s ease;
+    transition-delay: calc(.3s / var(--i));
+    animation: none;
+}
+
+section:nth-child(odd) .animate.scroll {
+    background: var(--second-bg-color);
+}
+
+.parcours .parcours-box .animate.scroll {
+    width: 105%;
+}
+
+.apropos.show-animate .animate.scroll,
+.parcours.show-animate .animate.scroll,
+.competences.show-animate .animate.scroll,
+.contact.show-animate .animate.scroll {
+    transition-delay: calc(.3s * var(--i));
+    width: 0;
+}
+
 
 /*BREAKPOINTS*/
 @media (max-width: 1200px) {
@@ -646,6 +733,7 @@ span {
         padding: 2rem 4%;
     }
 }
+
 
 @media (max-width: 768px) {
     .header {
@@ -751,7 +839,7 @@ span {
     }
 }
 
-@media (max-width: 371px) {
+@media (max-width: 368px) {
     .accueil {
         justify-content: center;
     }
@@ -767,6 +855,9 @@ span {
 
     }
 }
+
+
+
 
 /*KEYFRAMES ANIMATION*/
 @keyframes accueilBgText {
@@ -791,5 +882,17 @@ span {
 
     75%,81% {
         opacity: 0;
+    }
+}
+
+@keyframes aproposSpinner {
+    100% {
+        transform: translate( -50%, -50%) rotate(360deg);
+    }   
+}
+
+@keyframes showRight {
+    100% {
+        width: 0;
     }
 }
