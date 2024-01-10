@@ -426,6 +426,7 @@ span {
 .parcours-content .content a {
     font-size: 1.6rem;
     color: var(--main-color);
+    padding-right: 1.5rem;
 }
 
 .competences {
