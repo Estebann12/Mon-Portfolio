@@ -5,8 +5,8 @@ if (isset($_POST["email"])) {
     Email : " . $_POST["email"] . "
     Message : " . $_POST["message"];
 
- $retour = mail("estebannkrebs2@gmail.com", $_POST["objet"], $message, "Reply-to:" . $_POST["email"]);
- if ($retour) {
-    echo "<p>L'email à bien été envoyé</p>"; 
-}
+    $retour = mail("estebannkrebs2@gmail.com", $_POST["objet"], $message, "From:contact@exemplesite.fr\r\nReply-to:" . $_POST["email"]);
+    if ($retour) {
+        echo "<p>L'email à bien été envoyé</p>";
+    }
 }
